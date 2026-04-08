@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta para ti 💕</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Poppins', sans-serif;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    .intro {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: white;
+      font-size: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      animation: fadeOut 3s ease forwards;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+
+    .container {
+      display: none;
+      max-width: 750px;
+      margin: auto;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      color: white;
+      animation: fadeIn 2s ease forwards;
+      box-shadow: 0 0 30px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.9;
+      text-align: justify;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .gallery img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.4);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.15);
+    }
+
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s infinite ease-in;
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-100px) rotate(45deg); opacity: 0; }
+    }
+
+    .flower {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+      background-size: cover;
+      opacity: 0.7;
+      animation: floatFlower 12s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes floatFlower {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-100px) rotate(360deg); }
+    }
+
+    audio { display: none; }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="intro">🐱✨ ENAMORADO ETERNAMENTE DE TI... ✨🐱</div>
+
+  <!-- 🎵 AUDIO CORREGIDO -->
+  <audio id="musica" loop>
+    <source src="nina-bonita.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container" id="carta">
+    <h1>Para la dueña de mi ser 🐱💕</h1>
+
+    <p>
+Cariño mío, para ti mi mente y corazón,<br>
+siempre escribiéndote una vez más…  
+
+<br><br>
+
+Con la intención de que sepas que cada día que pasa<br>
+me vuelvo adicto a tu voz, a tu esencia,<br>
+que me derrite como una estrella fugaz<br>
+perdida en la eternidad de tus ojos.  
+
+<br><br>
+
+Diosa mía, quisiera entrar en tu cielo,<br>
+caminar contigo sin prisa,<br>
+recoger las flores que nacen<br>
+donde pisa tu alma.  
+
+<br><br>
+
+Hipnotizado por tus ojos verdes,<br>
+donde imagino nuestras vidas uniéndose…  
+
+<br><br>
+
+Me enamora tu forma de cuidar,<br>
+de sentir todo tan profundo,<br>
+como si amar fuera algo sagrado…  
+
+<br><br>
+
+Quiero fusionarme contigo,<br>
+en cuerpo, alma y espíritu,<br>
+como si Dios hubiera escrito<br>
+nuestro destino juntos.  
+
+<br><br>
+
+Porque no eres solo la mujer que amo…<br>
+eres mi lugar en el mundo.  
+
+<br><br>
+
+Siempre tuyo. 🐱💕
+    </p>
+
+    <div class="gallery">
+      <img src="MOON1.jpg">
+      <img src="MOON2.jpg">
+      <img src="MOON3.jpg">
+    </div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.querySelector('.intro').style.display = 'none';
+      document.querySelector('.container').style.display = 'block';
+    }, 3000);
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 300);
+
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.style.left = Math.random() * window.innerWidth + 'px';
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 12000);
+    }
+    setInterval(createFlower, 2000);
+
+    // 🔥 ACTIVAR MÚSICA CON TOQUE
+    const audio = document.getElementById("musica");
+    document.body.addEventListener("click", () => {
+      audio.play();
+    }, { once: true });
+  </script>
+
+</body>
+</html>
